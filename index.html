@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MABASA | K-Hair Specialist Brisbane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0EA;
+    --warm-white: #FAF8F5;
+    --charcoal: #1C1A18;
+    --dark-brown: #2E2A25;
+    --medium-brown: #8C7B6B;
+    --soft-blush: #E8D9CC;
+    --accent-rust: #7A3F2A;
+    --light-rust: #C4714A;
+    --border: rgba(28,26,24,0.12);
+    --border-medium: rgba(28,26,24,0.22);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+    --nav-h: 72px;
+    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--charcoal);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--medium-brown); border-radius: 2px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: rgba(250,248,245,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4vw;
+    z-index: 1000;
+    transition: var(--transition);
+  }
+
+  nav.scrolled {
+    background: rgba(250,248,245,0.98);
+    box-shadow: 0 1px 20px rgba(28,26,24,0.06);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--charcoal);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .nav-logo span {
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: var(--medium-brown);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dark-brown);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.25s;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent-rust);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--accent-rust); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--charcoal) !important;
+    color: var(--warm-white) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    letter-spacing: 0.15em !important;
+    transition: var(--transition) !important;
+  }
+  .nav-cta:hover { background: var(--accent-rust) !important; }
+  .nav-cta::after { display: none !important; }
+
+  /* Mobile nav */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--charcoal);
+    transition: var(--transition);
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--nav-h); left: 0; right: 0;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 4vw;
+    z-index: 999;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dark-brown);
+    text-decoration: none;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.25s;
+  }
+  .mobile-menu a:hover { color: var(--accent-rust); }
+  .mobile-menu .m-cta {
+    background: var(--charcoal);
+    color: var(--warm-white) !important;
+    padding: 0.9rem 1.5rem;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 6rem 4vw; }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--medium-brown);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--accent-rust);
+  }
+
+  .section-body {
+    font-size: 0.95rem;
+    color: var(--medium-brown);
+    max-width: 560px;
+    line-height: 1.9;
+  }
+
+  /* ─── BUTTONS ─── */
+  .btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem 2.2rem;
+    border-radius: 2px;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-dark {
+    background: var(--charcoal);
+    color: var(--warm-white);
+  }
+  .btn-dark:hover { background: var(--accent-rust); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
+  }
+  .btn-outline:hover {
+    background: var(--charcoal);
+    color: var(--warm-white);
+  }
+
+  .btn-rust {
+    background: var(--accent-rust);
+    color: var(--warm-white);
+  }
+  .btn-rust:hover { background: var(--dark-brown); }
+
+  /* ─── FADE IN ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    position: relative;
+    background: var(--cream);
+    overflow: hidden;
+  }
+
+  .hero-bg-lines {
+    position: absolute;
+    top: 0; right: 0;
+    width: 55%;
+    height: 100%;
+    opacity: 0.035;
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--charcoal) 0px,
+      var(--charcoal) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: calc(var(--nav-h) + 4rem) 6vw 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-content {}
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent-rust);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent-rust);
+  }
+
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--charcoal);
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--accent-rust);
+    font-weight: 400;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    color: var(--medium-brown);
+    max-width: 420px;
+    line-height: 2;
+    margin-bottom: 2.8rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.5rem;
+  }
+
+  .hero-card-stack {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .hero-main-card {
+    background: var(--charcoal);
+    border-radius: 4px;
+    padding: 3rem 2.5rem;
+    color: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-main-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .hero-main-card::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -30px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .hero-card-logo {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-card-sub {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-stat-num {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--warm-white);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45);
+    margin-top: 0.3rem;
+  }
+
+  .hero-float-pill {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 0.6rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    color: var(--dark-brown);
+    box-shadow: 0 4px 20px rgba(28,26,24,0.08);
+    align-self: flex-start;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .pill-dot {
+    width: 8px; height: 8px;
+    background: #5BAD7A;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  /* ─── INTRO STRIP ─── */
+  #intro-strip {
+    background: var(--charcoal);
+    padding: 1.5rem 4vw;
+    overflow: hidden;
+  }
+
+  .ticker-wrap {
+    display: flex;
+    gap: 4rem;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .ticker-item {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: rgba(245,240,234,0.55);
+    letter-spacing: 0.08em;
+  }
+
+  .ticker-dot {
+    display: inline-block;
+    width: 4px; height: 4px;
+    background: var(--accent-rust);
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 4rem;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    background: var(--warm-white);
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-img-placeholder {
+    background: var(--cream);
+    border-radius: 4px;
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(28,26,24,0.02) 30px,
+      rgba(28,26,24,0.02) 31px
+    );
+  }
+
+  .about-img-inner {
+    font-family: var(--serif);
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--border-medium);
+    text-align: center;
+    z-index: 1;
+    user-select: none;
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--accent-rust);
+    color: var(--warm-white);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(122,63,42,0.3);
+  }
+
+  .about-badge-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .about-badge-text {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    padding: 0 0.5rem;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .about-features {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: var(--cream);
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
+  }
+
+  .about-feature:hover {
+    border-color: var(--soft-blush);
+    transform: translateX(4px);
+  }
+
+  .feature-icon {
+    width: 36px; height: 36px;
+    background: var(--charcoal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    color: var(--warm-white);
+    font-family: var(--serif);
+    font-style: italic;
+  }
+
+  .feature-title {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--charcoal);
+    margin-bottom: 0.2rem;
+  }
+
+  .feature-desc {
+    font-size: 0.8rem;
+    color: var(--medium-brown);
+    line-height: 1.6;
+  }
+
+  /* ─── SERVICES ─── */
+  #services {
+    background: var(--cream);
+  }
+
+  .services-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  /* Tab system */
+  .service-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service-tab {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--medium-brown);
+    padding: 0.8rem 1.8rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: var(--transition);
+  }
+
+  .service-tab.active {
+    color: var(--charcoal);
+    border-bottom-color: var(--charcoal);
+  }
+
+  .service-tab:hover:not(.active) {
+    color: var(--dark-brown);
+  }
+
+  .service-panel { display: none; }
+  .service-panel.active { display: block; }
+
+  /* Price table */
+  .price-category {
+    margin-bottom: 3rem;
+  }
+
+  .price-category-title {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0;
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+  }
+
+  .price-row:hover {
+    padding-left: 0.5rem;
+    background: rgba(28,26,24,0.02);
+  }
+
+  .price-name {
+    font-size: 0.88rem;
+    color: var(--dark-brown);
+  }
+
+  .price-val {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    font-weight: 500;
+    white-space: nowrap;
+    margin-left: 1rem;
+  }
+
+  .price-sub {
+    font-size: 0.72rem;
+    color: var(--medium-brown);
+    display: block;
+    margin-top: 0.1rem;
+  }
+
+  .price-note {
+    font-size: 0.75rem;
+    color: var(--medium-brown);
+    margin-top: 1rem;
+    font-style: italic;
+  }
+
+  /* Balayage pack */
+  .balayage-section {
+    background: var(--charcoal);
+    border-radius: 4px;
+    padding: 3.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .balayage-section::before {
+    content: 'Balayage';
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    font-family: var(--serif);
+    font-size: 8rem;
+    font-style: italic;
+    font-weight: 600;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .balayage-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .balayage-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-style: italic;
+    color: var(--warm-white);
+    font-weight: 300;
+    line-height: 1.1;
+  }
+
+  .balayage-includes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .balayage-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,234,0.55);
+    border: 1px solid rgba(245,240,234,0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+  }
+
+  .balayage-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .balayage-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    padding: 1.8rem 1.5rem;
+    transition: var(--transition);
+  }
+
+  .balayage-card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(196,113,74,0.5);
+    transform: translateY(-3px);
+  }
+
+  .balayage-card-size {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--light-rust);
+    margin-bottom: 0.8rem;
+  }
+
+  .balayage-card-was {
+    font-size: 0.85rem;
+    color: rgba(245,240,234,0.3);
+    text-decoration: line-through;
+    margin-bottom: 0.3rem;
+  }
+
+  .balayage-card-price {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--warm-white);
+    line-height: 1;
+  }
+
+  /* ─── REVIEWS ─── */
+  #reviews {
+    background: var(--warm-white);
+  }
+
+  .reviews-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2rem;
+    position: relative;
+    transition: var(--transition);
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(28,26,24,0.08);
+    border-color: var(--soft-blush);
+  }
+
+  .review-quote-mark {
+    font-family: var(--serif);
+    font-size: 4rem;
+    font-style: italic;
+    color: var(--soft-blush);
+    line-height: 0.5;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .review-text {
+    font-size: 0.88rem;
+    color: var(--dark-brown);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .review-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--warm-white);
+    font-family: var(--serif);
+    font-style: italic;
+    flex-shrink: 0;
+  }
+
+  .review-name {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    letter-spacing: 0.05em;
+  }
+
+  .review-handle {
+    font-size: 0.7rem;
+    color: var(--medium-brown);
+  }
+
+  .review-stars {
+    color: var(--light-rust);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── POLICIES ─── */
+  #policies {
+    background: var(--cream);
+  }
+
+  .policies-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .policy-box {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 3rem;
+    margin-top: 3rem;
+    text-align: left;
+    position: relative;
+  }
+
+  .policy-box::before {
+    content: '!';
+    position: absolute;
+    top: -1px; left: -1px;
+    background: var(--accent-rust);
+    color: var(--warm-white);
+    width: 28px; height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    border-radius: 2px 0 3px 0;
+  }
+
+  .policy-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .policy-item:last-child { border-bottom: none; }
+
+  .policy-item-title {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-rust);
+    margin-bottom: 0.5rem;
+  }
+
+  .policy-item-text {
+    font-size: 0.9rem;
+    color: var(--dark-brown);
+    line-height: 1.8;
+  }
+
+  .policy-highlight {
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--charcoal);
+    color: var(--warm-white);
+  }
+
+  .contact-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-label {
+    color: rgba(245,240,234,0.45);
+  }
+
+  .contact-title {
+    color: var(--warm-white);
+  }
+
+  .contact-title em {
+    color: var(--light-rust);
+  }
+
+  .contact-body {
+    color: rgba(245,240,234,0.6);
+  }
+
+  .contact-details {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .contact-item-icon {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(245,240,234,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--light-rust);
+    flex-shrink: 0;
+  }
+
+  .contact-item-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,234,0.35);
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-item-val {
+    font-size: 0.92rem;
+    color: rgba(245,240,234,0.9);
+    line-height: 1.6;
+  }
+
+  .contact-item-val a {
+    color: var(--light-rust);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+
+  .contact-item-val a:hover { color: var(--warm-white); }
+
+  .location-branches {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .branch {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: rgba(245,240,234,0.8);
+  }
+
+  .branch-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(245,240,234,0.08);
+    border: 1px solid rgba(245,240,234,0.15);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+  }
+
+  /* Map placeholder */
+  .map-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(245,240,234,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .map-placeholder {
+    height: 320px;
+    background: rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(245,240,234,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,240,234,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .map-pin {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .map-pin-dot {
+    width: 16px; height: 16px;
+    background: var(--accent-rust);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    animation: mapPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes mapPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(122,63,42,0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(122,63,42,0); }
+  }
+
+  .map-pin-label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,234,0.7);
+  }
+
+  .map-address {
+    padding: 1.2rem 1.5rem;
+    border-top: 1px solid rgba(245,240,234,0.08);
+    font-size: 0.82rem;
+    color: rgba(245,240,234,0.55);
+  }
+
+  .map-address strong {
+    display: block;
+    color: rgba(245,240,234,0.85);
+    margin-bottom: 0.2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+
+  .map-cta {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-rust);
+    text-decoration: none;
+    border-top: 1px solid rgba(245,240,234,0.08);
+    transition: var(--transition);
+  }
+  .map-cta:hover { background: rgba(196,113,74,0.1); }
+
+  /* ─── BOOKING CTA BANNER ─── */
+  #booking-cta {
+    background: var(--accent-rust);
+    padding: 5rem 4vw;
+    text-align: center;
+  }
+
+  .booking-cta-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--warm-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .booking-cta-sub {
+    font-size: 0.82rem;
+    color: rgba(245,240,234,0.7);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  .booking-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-white {
+    background: var(--warm-white);
+    color: var(--accent-rust);
+    font-weight: 500;
+  }
+  .btn-white:hover { background: var(--charcoal); color: var(--warm-white); }
+
+  .btn-outline-white {
+    background: transparent;
+    color: var(--warm-white);
+    border: 1px solid rgba(245,240,234,0.5);
+  }
+  .btn-outline-white:hover { background: rgba(245,240,234,0.1); border-color: var(--warm-white); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark-brown);
+    padding: 3rem 4vw;
+    color: rgba(245,240,234,0.5);
+  }
+
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--warm-white);
+    text-decoration: none;
+  }
+
+  .footer-logo span {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: rgba(245,240,234,0.4);
+    font-weight: 400;
+    margin-top: 0.2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,234,0.45);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+  .footer-links a:hover { color: var(--light-rust); }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(245,240,234,0.25);
+    text-align: right;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .balayage-cards { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    :root { --nav-h: 60px; }
+
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    section { padding: 4rem 5vw; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      padding-top: calc(var(--nav-h) + 3rem);
+      text-align: center;
+    }
+
+    .hero-eyebrow { justify-content: center; }
+    .hero-sub { margin: 0 auto 2.5rem; }
+    .hero-actions { justify-content: center; }
+    .hero-visual { display: none; }
+
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+
+    .balayage-section { padding: 2rem 1.5rem; }
+    .balayage-cards { grid-template-columns: 1fr; }
+
+    .reviews-grid { grid-template-columns: 1fr; }
+
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-copy { text-align: center; }
+
+    .hero-float-pill { display: none; }
+  }
+
+  @media (max-width: 540px) {
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .balayage-header { flex-direction: column; }
+    .price-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    MABASA
+    <span>K-Hair Specialist</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#policies">Policies</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#booking-cta" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews</a>
+  <a href="#policies" onclick="closeMobile()">Policies</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#booking-cta" class="m-cta" onclick="closeMobile()">Book Now</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-up">Korea Style Hair Studio · Brisbane</p>
+      <h1 class="hero-headline fade-up" style="transition-delay:0.1s">
+        Your hair,<br>
+        <em>transformed.</em>
+      </h1>
+      <p class="hero-sub fade-up" style="transition-delay:0.2s">
+        Expertly trained in Korean hair techniques, Mabasa delivers precision cuts, stunning colour, and transformative treatments — in the heart of Brisbane.
+      </p>
+      <div class="hero-actions fade-up" style="transition-delay:0.3s">
+        <a href="#booking-cta" class="btn btn-dark">Book Appointment</a>
+        <a href="#services" class="btn btn-outline">View Services</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up" style="transition-delay:0.2s">
+      <div class="hero-float-pill">
+        <span class="pill-dot"></span>
+        Accepting bookings
+      </div>
+      <div class="hero-card-stack">
+        <div class="hero-main-card">
+          <div class="hero-card-logo">MABASA</div>
+          <div class="hero-card-sub">K-Hair Specialist</div>
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-num">2</div>
+              <div class="hero-stat-label">Brisbane locations</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">10/10</div>
+              <div class="hero-stat-label">Client satisfaction</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">K</div>
+              <div class="hero-stat-label">Hair specialist</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">★★★★★</div>
+              <div class="hero-stat-label">Rated by clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div id="intro-strip">
+  <div class="ticker-wrap">
+    <span class="ticker-item">Korean Hair Expertise</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Precision Colour</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Balayage Specialists</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Premium Treatments</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Nano Plasty</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Perms &amp; Styling</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Toowong &amp; Southbank</span>
+    <span class="ticker-dot"></span>
+    <!-- repeat for seamless loop -->
+    <span class="ticker-item">Korean Hair Expertise</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Precision Colour</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Balayage Specialists</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Premium Treatments</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Nano Plasty</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Perms &amp; Styling</span>
+    <span class="ticker-dot"></span>
+    <span class="ticker-item">Toowong &amp; Southbank</span>
+    <span class="ticker-dot"></span>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual fade-up">
+      <div class="about-img-placeholder">
+        <div class="about-img-inner">MA<br>BA<br>SA</div>
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-num">K</div>
+        <div class="about-badge-text">Hair Specialist</div>
+      </div>
+    </div>
+    <div>
+      <p class="section-label fade-up">Our Story</p>
+      <h2 class="section-title fade-up">Where Korean<br>artistry <em>meets</em><br>your hair.</h2>
+      <p class="section-body fade-up">
+        Mabasa was born from a passion for the refined, detail-oriented approach of Korean hair culture. Our stylists are expertly educated in K-hair techniques — delivering precision, personalisation, and results that speak for themselves.
+      </p>
+      <p class="section-body fade-up" style="margin-top:1rem;">
+        Whether you're after a transformative balayage, a perfectly executed perm, or a sleek treatment — we work with your hair's natural character to bring out its very best.
+      </p>
+
+      <div class="about-features fade-up" style="transition-delay:0.2s">
+        <div class="about-feature">
+          <div class="feature-icon">K</div>
+          <div>
+            <div class="feature-title">Korean Hair Techniques</div>
+            <div class="feature-desc">Trained in the fine craft of Korean hair styling — known for its precision and longevity.</div>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="feature-icon">✦</div>
+          <div>
+            <div class="feature-title">Personalised Consultations</div>
+            <div class="feature-desc">Every appointment begins with a thorough consultation to understand your vision and hair needs.</div>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="feature-icon">♡</div>
+          <div>
+            <div class="feature-title">Premium Products &amp; Care</div>
+            <div class="feature-desc">We use only the finest products and provide expert aftercare tips so your results last.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <div>
+        <p class="section-label fade-up">What We Offer</p>
+        <h2 class="section-title fade-up">Services &amp;<br><em>Pricing</em></h2>
+      </div>
+      <p class="section-body fade-up" style="max-width:360px;font-size:0.85rem;">
+        All services are tailored to your hair's unique needs. Prices may vary with thickness and extra-long length. A $30 deposit secures your booking.
+      </p>
+    </div>
+
+    <!-- Balayage Pack (always shown) -->
+    <div class="balayage-section fade-up">
+      <div class="balayage-header">
+        <div>
+          <p style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(245,240,234,0.4);margin-bottom:0.6rem;">Premium Package</p>
+          <h3 class="balayage-title">Balayage Pack</h3>
+        </div>
+      </div>
+      <div class="balayage-includes">
+        <span class="balayage-tag">Cut</span>
+        <span class="balayage-tag">Balayage</span>
+        <span class="balayage-tag">Root Shade</span>
+        <span class="balayage-tag">Base Color</span>
+        <span class="balayage-tag">Toner</span>
+        <span class="balayage-tag">Treatment</span>
+        <span class="balayage-tag">Styling</span>
+      </div>
+      <div class="balayage-cards">
+        <div class="balayage-card">
+          <div class="balayage-card-size">Medium</div>
+          <div class="balayage-card-was">$755</div>
+          <div class="balayage-card-price">$640</div>
+        </div>
+        <div class="balayage-card">
+          <div class="balayage-card-size">Long</div>
+          <div class="balayage-card-was">$840</div>
+          <div class="balayage-card-price">$720</div>
+        </div>
+        <div class="balayage-card">
+          <div class="balayage-card-size">Extra Long</div>
+          <div class="balayage-card-was">$940</div>
+          <div class="balayage-card-price">$855</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs for service categories -->
+    <div class="service-tabs">
+      <button class="service-tab active" onclick="switchTab(this, 'tab-cuts')">Cuts &amp; Styling</button>
+      <button class="service-tab" onclick="switchTab(this, 'tab-colour')">Colour</button>
+      <button class="service-tab" onclick="switchTab(this, 'tab-perms')">Perms</button>
+      <button class="service-tab" onclick="switchTab(this, 'tab-treatments')">Treatments</button>
+    </div>
+
+    <!-- Cuts & Styling -->
+    <div class="service-panel active" id="tab-cuts">
+      <div class="price-category">
+        <div class="price-category-title">Hair Cut</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row">
+              <span class="price-name">Men <span class="price-sub">Small</span></span>
+              <span class="price-val">$45</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Men <span class="price-sub">+ Wash</span></span>
+              <span class="price-val">$55</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Senior</span>
+              <span class="price-val">$36 / $55+</span>
+            </div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-name">Women S/M</span>
+              <span class="price-val">$65 / $92</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Women L</span>
+              <span class="price-val">$70 / $25+</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Women XL</span>
+              <span class="price-val">$75 / $30</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Women XXL</span>
+              <span class="price-val">$80 / $35</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Senior Women</span>
+              <span class="price-val">$55 / $15</span>
+            </div>
+          </div>
+        </div>
+        <p class="price-note">*Blow dry +$20 · Extra curly +$20–40</p>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Blow Dry &amp; Styling (+ Wash)</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row">
+              <span class="price-name">Men Small</span>
+              <span class="price-val">$30 / $15</span>
+            </div>
+          </div>
+          <div>
+            <div class="price-row">
+              <span class="price-name">Women S</span>
+              <span class="price-val">$50 / $25</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Women M</span>
+              <span class="price-val">$65 / $30</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Women L</span>
+              <span class="price-val">$70 / $35</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Women XL</span>
+              <span class="price-val">$80 / $40</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Children</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row">
+              <span class="price-name">Boy — Primary / High / Wash</span>
+              <span class="price-val">$39 / $42 / $5</span>
+            </div>
+            <div class="price-row">
+              <span class="price-name">Girl — Primary / High / Wash</span>
+              <span class="price-val">$60 / $65 / $5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colour -->
+    <div class="service-panel" id="tab-colour">
+      <div class="price-category">
+        <div class="price-category-title">Colour — 1 Touch / 2 Touches</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Root 2cm</span><span class="price-val">$110</span></div>
+            <div class="price-row"><span class="price-name">Root 5cm</span><span class="price-val">$130 / $140</span></div>
+            <div class="price-row"><span class="price-name">Small</span><span class="price-val">$150 / $180</span></div>
+            <div class="price-row"><span class="price-name">Medium</span><span class="price-val">$180 / $200</span></div>
+            <div class="price-row"><span class="price-name">Large</span><span class="price-val">$220 / $250</span></div>
+            <div class="price-row"><span class="price-name">XL</span><span class="price-val">$250 / $280</span></div>
+          </div>
+          <div>
+            <div class="price-row"><span class="price-name">Bleach — 1 Touch</span><span class="price-val">$150</span></div>
+            <div class="price-row"><span class="price-name">Bleach Root 4cm</span><span class="price-val">$180 / $100</span></div>
+            <div class="price-row"><span class="price-name">Bleach S</span><span class="price-val">$230</span></div>
+            <div class="price-row"><span class="price-name">Bleach M</span><span class="price-val">$280</span></div>
+            <div class="price-row"><span class="price-name">Bleach L</span><span class="price-val">$320 / $180</span></div>
+            <div class="price-row"><span class="price-name">Bleach XL (initial)</span><span class="price-val">$75</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Balayage</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Medium</span><span class="price-val">$280</span></div>
+            <div class="price-row"><span class="price-name">Large</span><span class="price-val">$330</span></div>
+            <div class="price-row"><span class="price-name">XL</span><span class="price-val">$380</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Foils — Full / ½ / ¼</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Small</span><span class="price-val">$230 / $180 / $140</span></div>
+            <div class="price-row"><span class="price-name">Medium</span><span class="price-val">$260 / $210 / $170</span></div>
+            <div class="price-row"><span class="price-name">Large</span><span class="price-val">$290 / $240 / $200</span></div>
+            <div class="price-row"><span class="price-name">XL</span><span class="price-val">$320 / $270 / $230</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Toner</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Small</span><span class="price-val">$90</span></div>
+            <div class="price-row"><span class="price-name">Medium</span><span class="price-val">$100</span></div>
+            <div class="price-row"><span class="price-name">Large</span><span class="price-val">$130</span></div>
+            <div class="price-row"><span class="price-name">XL</span><span class="price-val">$150</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Perms -->
+    <div class="service-panel" id="tab-perms">
+      <div class="price-category">
+        <div class="price-category-title">Men's Perm <span style="font-weight:300;font-size:0.85rem">(*Down Perm +$30 / Cut +$30)</span></div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Down Perm</span><span class="price-val">$90</span></div>
+            <div class="price-row"><span class="price-name">Side Back Down Perm</span><span class="price-val">$120</span></div>
+            <div class="price-row"><span class="price-name">Full Down Perm</span><span class="price-val">$170</span></div>
+          </div>
+          <div>
+            <div class="price-row"><span class="price-name">Straightening S</span><span class="price-val">$250</span></div>
+            <div class="price-row"><span class="price-name">Straightening M</span><span class="price-val">$280</span></div>
+            <div class="price-row"><span class="price-name">Cold Perm S</span><span class="price-val">$250</span></div>
+            <div class="price-row"><span class="price-name">Cold Perm M (full)</span><span class="price-val">$180</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Women Cold Wave Perm</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Small</span><span class="price-val">$180</span></div>
+            <div class="price-row"><span class="price-name">Medium</span><span class="price-val">$210</span></div>
+            <div class="price-row"><span class="price-name">Large</span><span class="price-val">$250</span></div>
+            <div class="price-row"><span class="price-name">XL</span><span class="price-val">$280</span></div>
+          </div>
+          <div>
+            <div class="price-row"><span class="price-name">Style Perm S</span><span class="price-val">$270</span></div>
+            <div class="price-row"><span class="price-name">Style Perm M</span><span class="price-val">$320</span></div>
+            <div class="price-row"><span class="price-name">Style Perm L</span><span class="price-val">$350</span></div>
+            <div class="price-row"><span class="price-name">Style Perm XL</span><span class="price-val">$380</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Setting Perm / Digital Perm</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Small</span><span class="price-val">$270</span></div>
+            <div class="price-row"><span class="price-name">Medium</span><span class="price-val">$320</span></div>
+            <div class="price-row"><span class="price-name">Large</span><span class="price-val">$350 <span style="font-size:0.7rem;color:var(--medium-brown)">+$50 style</span></span></div>
+            <div class="price-row"><span class="price-name">XL</span><span class="price-val">$380 <span style="font-size:0.7rem;color:var(--medium-brown)">+$50 root</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Partial Perm</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Fringe Perm</span><span class="price-val">$90</span></div>
+            <div class="price-row"><span class="price-name">Fringe Straightening</span><span class="price-val">$150</span></div>
+            <div class="price-row"><span class="price-name">Root Perm</span><span class="price-val">$150</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Straightening <span style="font-weight:300;font-size:0.85rem">(*Thickness +$50)</span></div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Small</span><span class="price-val">$280</span></div>
+            <div class="price-row"><span class="price-name">Medium</span><span class="price-val">$330</span></div>
+            <div class="price-row"><span class="price-name">Large</span><span class="price-val">$400</span></div>
+            <div class="price-row"><span class="price-name">XL</span><span class="price-val">$450</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Treatments -->
+    <div class="service-panel" id="tab-treatments">
+      <div class="price-category">
+        <div class="price-category-title">Treatment</div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Scalp Treatment</span><span class="price-val">$80</span></div>
+            <div class="price-row"><span class="price-name">Treatment S/M</span><span class="price-val">$150</span></div>
+            <div class="price-row"><span class="price-name">Treatment L/XXL</span><span class="price-val">$200</span></div>
+            <div class="price-row"><span class="price-name">Mini Treatment</span><span class="price-val">$100</span></div>
+            <div class="price-row"><span class="price-name">Chemical Treatment</span><span class="price-val">$130–180</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category-title">Nano Plasty <span style="font-weight:300;font-size:0.85rem">(*Thickness Extra +$50)</span></div>
+        <div class="price-grid">
+          <div>
+            <div class="price-row"><span class="price-name">Small</span><span class="price-val">$320</span></div>
+            <div class="price-row"><span class="price-name">Medium</span><span class="price-val">$380</span></div>
+            <div class="price-row"><span class="price-name">Large</span><span class="price-val">$400</span></div>
+            <div class="price-row"><span class="price-name">XL</span><span class="price-val">$450</span></div>
+          </div>
+        </div>
+        <p class="price-note">An extra charge applies for Thickness and 2X Long length. A deposit is required when making a reservation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-header">
+      <p class="section-label fade-up">Client Love</p>
+      <h2 class="section-title fade-up">What our clients<br><em>are saying</em></h2>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card fade-up">
+        <span class="review-quote-mark">"</span>
+        <p class="review-text">
+          Definitely a 10/10 for the entire experience. Was pretty nervous — it was my first time at a Korean hair salon. After consultations and trusting the process, the results had definitely met my expectations! Such a professional team who even gave me tips on how to blow dry to get this look.
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Amber Yee</div>
+            <div class="review-handle">@amber_yee0203</div>
+          </div>
+          <div class="review-stars" style="margin-left:auto">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up" style="transition-delay:0.1s">
+        <span class="review-quote-mark">"</span>
+        <p class="review-text">
+          First time visiting Mabasa and I am so happy with the results! Thank you for the lovely @mabasahair_celine for cutting, dyeing and styling my hair — truly exceeded my expectations.
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Michele Leung</div>
+            <div class="review-handle">@michele_x_leung</div>
+          </div>
+          <div class="review-stars" style="margin-left:auto">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up" style="transition-delay:0.2s">
+        <span class="review-quote-mark">"</span>
+        <p class="review-text">
+          Obsessed with my new hair colour! Thanks Yura for the gorgeous dye. If you're looking for a salon that truly listens and delivers, this is the one. I'll be coming back again and again.
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div>
+            <div class="review-name">Rouuu</div>
+            <div class="review-handle">@____rouuu</div>
+          </div>
+          <div class="review-stars" style="margin-left:auto">★★★★★</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem">
+      <a href="https://www.instagram.com/mabasa_hair" target="_blank" class="btn btn-outline">
+        See More on Instagram →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── POLICIES ─── -->
+<section id="policies">
+  <div class="policies-inner">
+    <p class="section-label fade-up">Important Information</p>
+    <h2 class="section-title fade-up" style="text-align:center">Booking &amp;<br><em>Cancellation</em> Policy</h2>
+    <p class="section-body fade-up" style="margin:0 auto;text-align:center">
+      We reserve appointment times exclusively for you. Please review our policies before booking.
+    </p>
+
+    <div class="policy-box fade-up">
+      <div class="policy-item">
+        <div class="policy-item-title">Deposit Requirement</div>
+        <div class="policy-item-text">
+          To secure your appointment with Mabasa Hair Salon, <span class="policy-highlight">we require a $30 non-refundable deposit</span> at the time of booking. This applies to all services.
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-item-title">Cancellations &amp; Rescheduling</div>
+        <div class="policy-item-text">
+          Appointment times are reserved exclusively for you. Cancellations, schedule changes, and no-shows leave gaps that are difficult to fill. <span class="policy-highlight">Please cancel or reschedule at least 48 hours in advance.</span> The deposit is non-refundable under any circumstances.
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-item-title">No-Show Policy</div>
+        <div class="policy-item-text">
+          Clients who do not attend their scheduled appointment without prior notice will forfeit their deposit. We appreciate your understanding and respect for our stylists' time.
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-item-title">How to Book</div>
+        <div class="policy-item-text">
+          Reach us via <span class="policy-highlight">Instagram DM @mabasa_hair</span>, mobile (Toowong: 0494 183 740 · Southbank: 0493 074 090), or email at <span class="policy-highlight">mabasa.hair@gmail.com</span>. Please provide your name, mobile, preferred date, time, and service required.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOKING CTA ─── -->
+<section id="booking-cta">
+  <p class="section-label" style="color:rgba(245,240,234,0.5);text-align:center" class="fade-up">Ready to transform?</p>
+  <h2 class="booking-cta-title fade-up">Book your appointment today</h2>
+  <p class="booking-cta-sub fade-up">Two Brisbane locations · Toowong &amp; Southbank</p>
+  <div class="booking-cta-actions fade-up">
+    <a href="tel:0494183740" class="btn btn-white">Call Toowong</a>
+    <a href="tel:0493074090" class="btn btn-white">Call Southbank</a>
+    <a href="mailto:mabasa.hair@gmail.com" class="btn btn-outline-white">Email Us</a>
+    <a href="https://www.instagram.com/mabasa_hair" target="_blank" class="btn btn-outline-white">Instagram DM</a>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div>
+        <p class="section-label contact-label fade-up">Find Us</p>
+        <h2 class="section-title contact-title fade-up">Visit <em>Mabasa</em></h2>
+        <p class="section-body contact-body fade-up">
+          We have two locations in Brisbane — both beautifully designed, both dedicated to delivering an exceptional Korean hair experience.
+        </p>
+
+        <div class="contact-details fade-up">
+          <div class="contact-item">
+            <div class="contact-item-icon">T</div>
+            <div>
+              <div class="contact-item-label">Toowong</div>
+              <div class="contact-item-val">
+                Shop 5, 38 High Street, Toowong QLD 4066<br>
+                <a href="tel:0494183740">0494 183 740</a><br>
+                Tue–Sun: 9:00am – 5:30pm · Monday closed
+              </div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">S</div>
+            <div>
+              <div class="contact-item-label">Southbank</div>
+              <div class="contact-item-val">
+                Southbank, Brisbane QLD<br>
+                <a href="tel:0493074090">0493 074 090</a><br>
+                Mon–Sat: 9:00am – 5:30pm · Sunday closed
+              </div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">@</div>
+            <div>
+              <div class="contact-item-label">Get in Touch</div>
+              <div class="contact-item-val">
+                <a href="https://www.instagram.com/mabasa_hair" target="_blank">@mabasa_hair</a><br>
+                <a href="mailto:mabasa.hair@gmail.com">mabasa.hair@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up" style="transition-delay:0.15s">
+        <div class="map-card">
+          <div class="map-placeholder">
+            <div class="map-grid"></div>
+            <div class="map-pin">
+              <div class="map-pin-dot"></div>
+              <span class="map-pin-label">Mabasa · Toowong</span>
+            </div>
+          </div>
+          <div class="map-address">
+            <strong>Shop 5, 38 High Street, Toowong QLD 4066</strong>
+            2 min walk from Toowong Village · 6 min walk from Katsuco
+          </div>
+          <a href="https://maps.google.com/?q=38+High+Street+Toowong+QLD+4066" target="_blank" class="map-cta">
+            Open in Google Maps →
+          </a>
+        </div>
+
+        <div style="margin-top:2rem;text-align:center">
+          <a href="#booking-cta" class="btn btn-rust" style="width:100%;display:block;text-align:center;">
+            Book Your Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <a href="#hero" class="footer-logo">
+      MABASA
+      <span>K-Hair Specialist · Brisbane</span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#policies">Policies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="footer-copy">
+      © 2025 Mabasa Hair Studio<br>
+      All rights reserved
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // Service tabs
+  function switchTab(btn, panelId) {
+    document.querySelectorAll('.service-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+  }
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
